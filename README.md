@@ -1,25 +1,18 @@
-# 🚀 Auto Create Pterodactyl Panel (HTML only)
+# 🚀 Auto Create Pterodactyl Panel Fullstack
 
-## 📦 File
-- `index.html` : website utama form input
-- `config.js`  : berisi setting seperti APIKEY, CAPIKEY, DOMAIN, KEYAKSES
-- `README.md`  : panduan ini
+✅ Frontend: HTML + Tailwind (form input)  
+✅ Backend: Express API (buat user Pterodactyl pakai APIKEY)
 
-## ⚙ Cara Pakai
-1. Edit file `config.js`:
+## 📦 Cara pakai
+1. Copy `.env.example` ke `.env` lalu isi APIKEY, DOMAIN, ACCESS_KEY kamu.
+2. Jalankan backend:
 ```
-const CONFIG = {
-  APIKEY: "APIKEY_ANDA",
-  CAPIKEY: "CAPIKEY_ANDA",
-  DOMAIN: "https://your.panel.com",
-  KEYAKSES: "AlfarzHost"
-};
+npm install
+npm start
 ```
-2. Upload semua file (`index.html`, `config.js`) ke hosting Anda (misalnya Netlify, cPanel, dll).
-
-3. Akses melalui browser.  
-Jika user input key akses salah, akan muncul pesan merah.
+3. Buka `frontend/index.html` di browser.  
+Input Key ➔ otomatis buat panel.
 
 ---
 
-✍ Create by Alfarezz
+✍ Dibuat dengan ❤️ oleh Alfarezz
