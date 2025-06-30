@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Create Pterodactyl Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">🚀 Auto Create Panel</h2>
+
+    <input id="username" class="border p-2 w-full mb-4 rounded" placeholder="Username" />
+    <select id="ram" class="border p-2 w-full mb-4 rounded">
+      <option value="">Pilih RAM</option>
+      <option>1GB</option><option>2GB</option><option>3GB</option>
+      <option>4GB</option><option>5GB</option><option>6GB</option>
+      <option>7GB</option><option>8GB</option><option>9GB</option>
+      <option>10GB</option><option>UNLI</option>
+    </select>
+    <button onclick="showKey()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded mb-4">
+      Konfirmasi
+    </button>
+
+    <div id="keyInput" class="hidden">
+      <input id="accessKey" class="border p-2 w-full mb-4 rounded" placeholder="Masukkan Key Akses" />
+      <button onclick="submitData()" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold p-2 rounded">
+        Submit
+      </button>
+    </div>
+
+    <div id="result" class="mt-6 text-center"></div>
+
+    <p class="text-center text-sm text-gray-500 mt-8">Create by Alfarezz</p>
+  </div>
+
+<script>
+function showKey() {
+  document.getElementById("keyInput").classList.remove("hidden");
+}
+
+async function submitData() {
+  const username = document.getElementById("username").value;
+  const ram = document.getElementById("ram").value;
+  const key = document.getElementById("accessKey").value;
+
+  const res = await fetch("http://localhost:3000/api/create_panel", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ username, ram, key })
+  });
+
+  const data = await res.json();
+  const resultDiv = document.getElementById("result");
+
+  if (data.status === "success") {
+    resultDiv.innerHTML = `
+      <div class="bg-green-100 p-4 rounded shadow">
+        <p class="text-green-700 font-semibold">✅ Panel dibuat!</p>
+        <p><b>Username:</b> ${data.username}</p>
+        <p><b>Password:</b> ********</p>
+        <p><b>Login Domain:</b> ${data.domain_login}</p>
+      </div>`;
+  } else {
+    resultDiv.innerHTML = `<p class="text-red-600 font-semibold">${data.message}</p>`;
+  }
+}
+</script>
+
+</body>
+</html>
