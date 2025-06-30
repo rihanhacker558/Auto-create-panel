@@ -1,6 +1,0 @@
-const CONFIG = {
-  APIKEY: "YOUR_APIKEY",
-  CAPIKEY: "YOUR_CAPIKEY",
-  DOMAIN: "YOUR_DOMAIN_PANEL",
-  KEYAKSES: "AlfarzHost"
-};
