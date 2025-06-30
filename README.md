@@ -1,12 +1,25 @@
-# 🚀 Auto Pterodactyl Panel Creator Ready
+# 🚀 Auto Create Pterodactyl Panel (HTML only)
 
-## 📦 Cara pakai
-1. Copy file `.env.example` ke `.env.local` lalu isi dengan data Anda.
-2. Jalankan lokal:
-```bash
-npm install
-npm run dev
+## 📦 File
+- `index.html` : website utama form input
+- `config.js`  : berisi setting seperti APIKEY, CAPIKEY, DOMAIN, KEYAKSES
+- `README.md`  : panduan ini
+
+## ⚙ Cara Pakai
+1. Edit file `config.js`:
 ```
-3. Deploy ke Vercel ➔ atur Environment Variables sesuai `.env.example`
+const CONFIG = {
+  APIKEY: "APIKEY_ANDA",
+  CAPIKEY: "CAPIKEY_ANDA",
+  DOMAIN: "https://your.panel.com",
+  KEYAKSES: "AlfarzHost"
+};
+```
+2. Upload semua file (`index.html`, `config.js`) ke hosting Anda (misalnya Netlify, cPanel, dll).
 
-Enjoy! 🎉
+3. Akses melalui browser.  
+Jika user input key akses salah, akan muncul pesan merah.
+
+---
+
+✍ Create by Alfarezz
